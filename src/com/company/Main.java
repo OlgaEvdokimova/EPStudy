@@ -17,7 +17,7 @@ public class Main {
 // call 4 methods (tasks)
         text.replaceFirstWordAndTheLastWordInExclamatorySentences();
         text.findAndDeleteFirstLetter();
-        text.deleteSubstring("a", "f");
+        //text.deleteSubstring("a", "f");
         text.findNoRepeatedWordsInFirstSentenceOfText();
 
 // text after correcting

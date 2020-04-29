@@ -72,15 +72,15 @@ public class Sentence implements Serializable {
         return sentence;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        return sentence.equals(obj);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return sentence.hashCode();
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        return sentence.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return sentence.hashCode();
+    }
 }
 
 

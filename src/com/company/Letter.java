@@ -1,6 +1,8 @@
 package com.company;
 
-public class Letter {
+import java.io.Serializable;
+
+public class Letter implements Serializable {
     private static final long serialVersionUID = 1;
     String symbol;
 

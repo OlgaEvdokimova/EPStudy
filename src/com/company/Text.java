@@ -133,6 +133,9 @@ public class Text implements Serializable {
                 int indexLast = sentence.sentence.lastIndexOf(lastSymbol);
                 int indexFirst = sentence.sentence.indexOf(firstSymbol);
                 if (indexFirst < indexLast) {
+                    System.out.println(sentences.indexOf(sentence));
+                    System.out.println(indexFirst);
+                    System.out.println(indexLast);
                     sentences.set(sentences.indexOf(sentence), new Sentence(sentence.sentence.substring(0, indexFirst).
                             concat(sentence.sentence.substring(indexLast + 1))));
                 }
@@ -143,6 +146,7 @@ public class Text implements Serializable {
             }
         }
     }
+
 
 }
 
