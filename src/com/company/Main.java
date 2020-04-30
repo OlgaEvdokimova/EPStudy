@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 public class Main {
@@ -24,12 +25,12 @@ public class Main {
         System.out.println(text.sentences);
         File filePath = new File("E:/JavaOlya/EpTasks/EPStudy/forWrite.txt");
         Connector connector = new Connector();
-        Text deserializationText = null;
+        List<Sentence> deserializationText = null;
 
         connector.writeWithSerialisation(filePath, text);
         deserializationText = connector.readWithSerialization(filePath);
 
-        System.out.println("box after serialization and deserialization:\n" + deserializationText);
+        System.out.println("Text after serialization and deserialization:\n" + deserializationText);
     }
 
 }
