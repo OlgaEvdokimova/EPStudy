@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -23,8 +22,8 @@ public class Main {
 // text after correcting
         System.out.println("===============================");
         System.out.println(text.sentences);
-        File fileForWrite = new File("E:/JavaOlya/EpTasks/EPStudy/forWrite.txt");
-        Writer.readToFile(fileForWrite, text);
+        File filePath = new File("E:/JavaOlya/EpTasks/EPStudy/forWrite.txt");
+        Connector.writeWithSerialisation(filePath, text);
     }
 
 }
