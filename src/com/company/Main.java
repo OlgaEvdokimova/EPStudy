@@ -23,7 +23,13 @@ public class Main {
         System.out.println("===============================");
         System.out.println(text.sentences);
         File filePath = new File("E:/JavaOlya/EpTasks/EPStudy/forWrite.txt");
-        Connector.writeWithSerialisation(filePath, text);
+        Connector connector = new Connector();
+        Text deserializationText = null;
+
+        connector.writeWithSerialisation(filePath, text);
+        deserializationText = connector.readWithSerialization(filePath);
+
+        System.out.println("box after serialization and deserialization:\n" + deserializationText);
     }
 
 }
