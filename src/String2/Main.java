@@ -1,4 +1,4 @@
-package com.company;
+package String2;
 
 import java.io.File;
 import java.io.IOException;
