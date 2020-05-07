@@ -5,6 +5,7 @@ import com.company.lesson1.exceptions.IncorrectDataException;
 import com.company.lesson1.exceptions.AgeNotNumerException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +13,6 @@ public class ValidatorImp implements Validator {
 
 
     private List<String> validLines;
-    private String[] splitLine;
 
     public ValidatorImp() {
         this.validLines = new ArrayList<>();
@@ -23,7 +23,8 @@ public class ValidatorImp implements Validator {
         Iterator<String> i = listOfLines.iterator();
         boolean number = true;
         while (i.hasNext()) {
-            splitLine = i.next().split("\\s");
+            StringBuilder stringBuilder = new StringBuilder();
+            String[] splitLine = i.next().split("\\s");
             if (!(splitLine.length == 4)) {
                 throw new IncorrectDataException("Incorrect Data in Line");
             }
@@ -35,7 +36,12 @@ public class ValidatorImp implements Validator {
             if (!number) {
                 throw new AgeNotNumerException(splitLine[Constants.AGE] + " не число");
             }
-            validLines.add(splitLine.toString());
+            for (String element : splitLine) {
+                stringBuilder.append(element).append(" ");
+            }
+
+            validLines.add(stringBuilder.toString());
+
         }
         return validLines;
     }

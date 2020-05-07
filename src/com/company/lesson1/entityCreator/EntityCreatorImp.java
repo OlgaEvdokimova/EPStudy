@@ -4,6 +4,7 @@ import com.company.lesson1.constants.Constants;
 import com.company.lesson1.entity.Person;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,11 +23,14 @@ public class EntityCreatorImp implements EntityCreator {
         String middleName;
         int age;
         Iterator<String> i = validLines.iterator();
+
         while (i.hasNext()) {
             String[] splitLine = i.next().split("\\s");
+
             lastName = splitLine[Constants.LAST_NAME];
             firstName = splitLine[Constants.FIRST_NAME];
             middleName = splitLine[Constants.MIDDLE_NAME];
+            //System.out.println(splitLine[Constants.AGE]);
             age = Integer.parseInt(splitLine[Constants.AGE]);
             persons.add(new Person(lastName, firstName, middleName, age));
         }

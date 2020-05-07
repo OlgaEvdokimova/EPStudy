@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class Main {
-   private static final String PATH = "E:/JavaOlya/EpTasks/EPStudy";
+    private static final String PATH = "E:/JavaOlya/EpTasks/EPStudy/person.txt";
 
     public static void main(String[] args) {
         Reader reader = new ReaderImp(PATH);
         Validator validator = new ValidatorImp();
-        EntityCreator entityCreator =  new EntityCreatorImp();
+        EntityCreator entityCreator = new EntityCreatorImp();
 
         List<String> linesFromReader = reader.getLinesFromFile();
         List<String> linesFromValidator = null;
@@ -29,7 +29,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
         List<Person> personList = entityCreator.createAndGetPersons(linesFromValidator);
-
+       System.out.println(personList);
 
     }
 }
