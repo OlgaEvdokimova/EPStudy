@@ -22,8 +22,7 @@ public class EntityCreatorImp implements EntityCreator {
         String lastName;
         String middleName;
         int age;
-        Iterator<String> i = validLines.iterator();
-
+         Iterator<String> i = validLines.iterator();
         while (i.hasNext()) {
             String[] splitLine = i.next().split("\\s");
 
