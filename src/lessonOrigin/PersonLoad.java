@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidPerson {
+public class PersonLoad {
 
     private static final int LAST_MAME = 0;
     private static final int FIRST_MAME = 1;
