@@ -47,7 +47,7 @@ public class Main {
             }
             map.put(elemOfSet, count);
         }
-        System.out.println(map);
+
 
 // descending sort by values
         List<Map.Entry<String, Integer>> list1 = new ArrayList<>(map.entrySet());
@@ -58,7 +58,11 @@ public class Main {
                 }
             }
         }
-        System.out.println(list1);
+        System.out.println("отсортировать по убыванию частоты встречание");
+        for (Map.Entry<String , Integer> el : list1){
+            System.out.println(el.getKey() + " - " + el.getValue());
+        }
+
 
 // ascending sort
         for (int j = 0; j < list1.size(); j++) {
@@ -86,10 +90,15 @@ public class Main {
             }
             map2.put(length, countWord);
         }
-System.out.println(map2);
+        System.out.println("отсортировать вывод от меньшей длины к большей");
+        for (Map.Entry<Integer, Integer> el : map2.entrySet()){
+            System.out.println(el.getKey() + " - " + el.getValue());
+        }
+        //System.out.println(map2);
+
+
+
     }
-
-
 
 
 }
