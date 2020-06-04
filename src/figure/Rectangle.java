@@ -1,28 +1,28 @@
 package figure;
 
 public class Rectangle implements Figure{
-    private double a;
-    private  double b;
+    private double width;
+    private  double height;
 
-    public double getB() {
-        return b;
+    public double getHeight() {
+        return height;
     }
 
-    public double getA() {
-        return a;
+    public double getWidth() {
+        return width;
     }
 
-    public void setA(double a) {
-        this.a = a;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
-    public void setB(double b) {
-        this.b = b;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public Rectangle(double a, double b) {
-        this.a = a;
-        this.b = b;
+    public Rectangle(double a, double height) {
+        this.width = a;
+        this.height = height;
     }
 
     @Override
@@ -32,11 +32,11 @@ public class Rectangle implements Figure{
 
     @Override
     public double getArea() {
-        return a * b;
+        return width * height;
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * (a + b);
+        return 2 * (width + height);
     }
 }

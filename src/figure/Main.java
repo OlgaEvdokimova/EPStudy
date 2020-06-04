@@ -1,17 +1,14 @@
 package figure;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Figure circle1 = new Circle(1);
+        Figure circle1 = new Circle(2);
         Figure rectangle1 = new Rectangle(3, 2);
 
-        Figure circle2 = new Circle(2);
+        Figure circle2 = new Circle(4);
         Figure rectangle2 = new Rectangle(4, 2);
         Figure circle3 = new Circle(7);
         Figure rectangle3 = new Rectangle(1, 2);
@@ -45,9 +42,35 @@ public class Main {
         for (Figure figure : figures) {
             System.out.println(figure);
         }
+
+        Input input = new Input();
+        List<Figure> figuresInput = new ArrayList<>();
+        try {
+            figuresInput = input.input();
+            System.out.println("Сортировка по площади");
+            Collections.sort(figuresInput, compare1);
+            for (Figure figure : figuresInput) {
+                System.out.println(figure);
+            }
+
+            System.out.println("Сортировка по периметру");
+            Collections.sort(figures, compare2);
+            for (Figure figure : figuresInput) {
+                System.out.println(figure);
+            }
+
+            System.out.println("Сортировка по типу и площади");
+            Collections.sort(figures, compare3);
+            for (Figure figure : figuresInput) {
+                System.out.println(figure);
+            }
+        } catch (IncorrectFigure ex) {
+            ex.printStackTrace();
+        }
+
+
     }
 }
-
 
 
 //         double areaOfCircle = circle.getArea();
