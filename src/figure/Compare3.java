@@ -30,7 +30,7 @@ public class Compare3 implements Comparator<Figure> {
             return -1;
         }
         else {
-            return 0;
+            return 1;
         }
     }
 }

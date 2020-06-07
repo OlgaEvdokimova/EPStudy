@@ -5,21 +5,47 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Figure circle1 = new Circle(2);
-        Figure rectangle1 = new Rectangle(3, 2);
 
-        Figure circle2 = new Circle(4);
-        Figure rectangle2 = new Rectangle(4, 2);
-        Figure circle3 = new Circle(7);
-        Figure rectangle3 = new Rectangle(1, 2);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" 1 - програмно, 2 - через консоль, 3 - через файл");
+        int choice = scanner.nextInt();
 
         List<Figure> figures = new ArrayList<>();
-        figures.add(circle1);
-        figures.add(rectangle1);
-        figures.add(circle2);
-        figures.add(rectangle2);
-        figures.add(circle3);
-        figures.add(rectangle3);
+
+        if (choice == 1) {
+            Figure circle1 = new Circle(1);
+            Figure rectangle1 = new Rectangle(3, 2);
+
+            Figure circle2 = new Circle(4);
+            Figure rectangle2 = new Rectangle(4, 2);
+            Figure circle3 = new Circle(7);
+            Figure rectangle3 = new Rectangle(1, 2);
+
+
+            figures.add(circle1);
+            figures.add(rectangle1);
+            figures.add(circle2);
+            figures.add(rectangle2);
+            figures.add(circle3);
+            figures.add(rectangle3);
+        } else if (choice == 2) {
+            Input input = new Input();
+            try {
+                input.callFigures(figures);
+
+            } catch (WrongDataException ex) {
+                ex.printStackTrace();
+            }
+        } else if (choice == 3) {
+            FileUtils fileUtils = new FileUtils();
+            try {
+               fileUtils.getFigures(figures);
+            } catch (WrongDataException e) {
+                e.printStackTrace();
+            }
+        } else {
+            scanner.close();
+        }
 
         System.out.println("Сортировка по площади");
         Comparator<Figure> compare1 = new Compare1();
@@ -43,44 +69,27 @@ public class Main {
             System.out.println(figure);
         }
 
-        Input input = new Input();
-        List<Figure> figuresInput = new ArrayList<>();
-        try {
-            figuresInput = input.input();
-            System.out.println("Сортировка по площади");
-            Collections.sort(figuresInput, compare1);
-            for (Figure figure : figuresInput) {
-                System.out.println(figure);
-            }
 
-            System.out.println("Сортировка по периметру");
-            Collections.sort(figures, compare2);
-            for (Figure figure : figuresInput) {
-                System.out.println(figure);
-            }
-
-            System.out.println("Сортировка по типу и площади");
-            Collections.sort(figures, compare3);
-            for (Figure figure : figuresInput) {
-                System.out.println(figure);
-            }
-        } catch (IncorrectFigure ex) {
-            ex.printStackTrace();
-        }
+//
+//        System.out.println("Сортировка по площади Input");
+//            Collections.sort(figuresInput, compare1);
+//            for (Figure figure : figuresInput) {
+//                System.out.println(figure);
+//            }
+//
+//            System.out.println("Сортировка по периметру Input");
+//            Collections.sort(figuresInput, compare2);
+//            for (Figure figure : figuresInput) {
+//                System.out.println(figure);
+//            }
+//
+//            System.out.println("Сортировка по типу и площади");
+//            Collections.sort(figuresInput, compare3);
+//            for (Figure figure : figuresInput) {
+//                System.out.println(figure);
+//            }
 
 
     }
 }
 
-
-//         double areaOfCircle = circle.getArea();
-//        System.out.printf("Area of circle : %.3f", areaOfCircle);
-//        System.out.println();
-//        double perimeterOfCircle = circle.getPerimeter();
-//        System.out.printf("Perimeter of circle : %.3f", perimeterOfCircle);
-//        System.out.println();
-//        double areaOfRectangle = rectangle.getArea();
-//        System.out.println("Area of rectangle " + areaOfRectangle);
-//
-//        double perimeterOfRectangle = rectangle.getPerimeter();
-//        System.out.println("Perimeter of rectangle " + perimeterOfRectangle);
