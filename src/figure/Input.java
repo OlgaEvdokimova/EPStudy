@@ -34,7 +34,7 @@ public class Input {
                 double xC = Double.parseDouble(x);
                 double yC = Double.parseDouble(y);
                 double radiusC = Double.parseDouble(radius);
-                figure = new Circle(radiusC);
+                figure = new Circle(radiusC, xC, yC);
 
             } else if (strFigure.equals("Rectangle")) {
                 System.out.println("Введите параметры x, y, width, height");
@@ -56,7 +56,7 @@ public class Input {
         }
 
         return figure;
-
-
     }
+
+
 }

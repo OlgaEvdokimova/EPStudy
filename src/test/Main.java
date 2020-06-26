@@ -7,25 +7,29 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(){
-            {
-                add(2);
-                add(4);
-                add(1);
-                add(3);
-                add(5);
-            }
-        };
 
-        Comparator<Integer> comparator = new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-               // if(o1 > o2)
-                return o1.compareTo(o2) ;
+        Figure circle1 = new Circle(2);
+        Figure circle2 = new Circle(2);
+        Figure rectangle = new Rectangle(1, 2);
+        List<Figure> figures = new ArrayList<>(){
+            {
+                add(circle1);
+                add(circle2);
+                add(rectangle);
             }
         };
-        Collections.sort(list, comparator);
-        System.out.println(list);
+        System.out.println(figures);
+         for (Figure figure: figures){
+             if (figure instanceof Circle){
+                 System.out.println("circle");
+             } else {
+                 System.out.println("rectangle");
+             }
+         }
+
+
+
+
 
     }
 }
