@@ -96,10 +96,44 @@ public class Circle implements Figure {
             Circle figure2 = (Circle) figure;
             return ((radius) + figure2.radius >= Math.sqrt(Math.pow(x - figure2.x, 2) + Math.pow(y - figure2.y, 2)))  ||
                     ((radius) - figure2.radius >= Math.sqrt(Math.pow(x - figure2.x, 2) + Math.pow(y - figure2.y, 2)));
-        } else if (){
+        } else if (figure instanceof Rectangle) {
+            Rectangle figure2 = (Rectangle) figure;
 
-            return true;
+            // A -  rectangle
+            //x right
+            double xRightA = figure2.getX() + figure2.getWidth() / 2;
+            //x left
+            double xLeftA = figure2.getX() - figure2.getWidth() / 2;
+            //y bottom
+            double yBottomA = figure2.getY() - figure2.getHeight() / 2;
+            //y top B
+            double yTopA = figure2.getY() + figure2.getHeight() / 2;
+
+            // find the distance between Circle center and Rect center
+            double dx = Math.abs(figure2.getX() - x);
+            double dy = Math.abs(figure2.getY() - y);
+            // now check the distance to horizontal(verticle) Rectangle axis , if it less width(height)/2 -> so
+            // the center of Circle is inside of Rectangle --> collision
+            if (dx <= figure2.getWidth() / 2 && dy <= figure2.getHeight() / 2) {
+                return true;
+                // check the corners, if the circle centers lie with in them
+            } else if ((x > xRightA && y < yBottomA) || (x > xRightA && y > yTopA) ||
+                    (x < xLeftA && y < yBottomA) || x < xLeftA && y > yTopA) {
+                double d = Math.sqrt(Math.pow(dx - figure2.getWidth() / 2, 2) + Math.pow(dy - figure2.getHeight() / 2, 2));
+                return d <= radius;
+
+            } else if (x < xRightA && y < yBottomA) {
+                return  (yBottomA - y) < radius;
+            } else  if (x < xRightA && y >yTopA){
+                return (y - yTopA) < radius;
+            }else  if (x > xRightA && y > yBottomA){
+                return (x - xRightA) < radius;
+            }else if (x < xLeftA&& y > yBottomA){
+                return xLeftA - x < radius;
+            }
         }
         return false;
     }
+
+
 }

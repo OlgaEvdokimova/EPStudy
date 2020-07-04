@@ -38,9 +38,16 @@ public class Rectangle implements Figure {
         this.height = height;
     }
 
-    public Rectangle(double a, double height) {
-        this.width = a;
+    public Rectangle(double width, double height) {
+        this.width = width;
         this.height = height;
+    }
+
+    public Rectangle(double width, double height, double x, double y) {
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
     }
 
     @Override

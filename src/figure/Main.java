@@ -30,23 +30,24 @@ public class Main {
                 figures.add(rectangle3);
             } else if (choice.equals("2")) {
                 Input input = new Input();
-                input.callFigures(figures);
+                List<Figure> figuresF = input.callFigures(figures);
+                figuresF.get(0).collide(figuresF.get(1));
 
             } else if (choice.equals("3")) {
                 FileUtils fileUtils = new FileUtils();
                 fileUtils.getFigures(figures);
             } else if (choice.equals("4")) {
-                Figure circle1 = new Circle(1);
-                Figure rectangle1 = new Rectangle(3, 2);
-                System.out.println(circle1.contains(rectangle1));
+                Figure circle1 = new Circle(1, 3,4);
+                Figure rectangle1 = new Rectangle(3, 2, 6, 2);
+                System.out.println(circle1.collide(rectangle1));
 
-                Figure circle2 = new Circle(4);
-                System.out.println(circle2.contains(circle2));
+                Figure circle2 = new Circle(4, 3,3);
+                System.out.println(circle2.collide(circle2));
 
-                Figure rectangle2 = new Rectangle(4, 2);
-                System.out.println(rectangle2.contains(rectangle1));
+                Figure rectangle2 = new Rectangle(4, 2, 5,2);
+                System.out.println(rectangle2.collide(rectangle1));
 
-                System.out.println(rectangle1.contains(circle1));
+                System.out.println(rectangle1.collide(circle1));
 
             } else {
                 throw new WrongDataException("1 or 2 or 3");
